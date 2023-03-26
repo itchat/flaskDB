@@ -1,0 +1,27 @@
+table td {
+    word-wrap: break-word;
+    max-width: 400px;
+}
+
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+p {
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+
+.footer {
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+.button-gap {
+    margin-top: 10px;
+    margin-right: 10px;
+}

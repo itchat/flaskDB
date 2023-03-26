@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>flaskDB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <link rel="stylesheet" href="static\wiki.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <script src="static\wiki.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="header"><h1>flaskDB</h1></header>
+<div class="container mt-5">
+    <form method="post">
+        <div class="form-group"><input type="text" class="form-control" name="search_text" placeholder="Search"></div>
+        <button type="submit" class="btn btn-primary button-gap" name="search_button">Search</button>
+    </form>
+    <table class="table mt-4">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Text</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for result in results %}
+        <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1]|render_markdown|safe }}</td>
+            <td>
+                <div class="copy-btn-div">
+                    <button class="btn btn-secondary copy-btn" data-clipboard-text="{{ result[1] }}">Copy</button>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="container-fluid">
+        <form method="post" class="mt-4">
+            <div class="form-group row justify-content-start">
+                <div class="col-sm-10">
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-secondary mr-2" name="add_button">Add</button>
+                        <button type="submit" class="btn btn-secondary mr-2" name="update_button">Update</button>
+                        <button type="submit" class="btn btn-secondary" name="delete_button">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" name="id_text" id="id_text" placeholder="ID">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <textarea id="markdown-editor" name="text_text" class="form-control" placeholder="Text"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer class="footer"><p>flaskDB &copy; 2023</p></footer>
+</body>
+</html>
