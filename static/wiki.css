@@ -1,6 +1,7 @@
 table td {
     word-wrap: break-word;
     max-width: 400px;
+    overflow-wrap: break-word;
 }
 
 .header {
@@ -24,4 +25,12 @@ p {
 .button-gap {
     margin-top: 10px;
     margin-right: 10px;
+}
+
+@media only screen {
+    table td {
+      max-width: 220px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
 }

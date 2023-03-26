@@ -43,10 +43,12 @@ The test environment is Windows 10.
 
 `pip install waitress`
 
+Create a bat file in any location.
+
 ```bat
 @echo off
 cd C:\Users\itcha\Desktop\Portable\flaskDB
 start /b pythonw.exe -m waitress --listen=*:80 main:app
 ```
 
-Add it to the Windows Task Scheduler. This has become a local MySQL data search engine.
+Add it to the Windows Task Scheduler to turn it into a local MySQL data search engine.
