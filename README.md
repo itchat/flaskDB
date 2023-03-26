@@ -39,6 +39,8 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 ## Ops
 
+The test environment is Windows 10.
+
 `pip install waitress`
 
 ```bat
